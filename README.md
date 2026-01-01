@@ -1,2 +1,3 @@
 # Python-Journey
-I will be sharing my python learning journey in this repository.
+I will be sharing my python learning journey in this repository.<br>
+--Dikshyant Baral--
