@@ -53,3 +53,4 @@ Hello, how would you like to proceed?
             print(self.balance)
          else:
             print("Invalid pin")
+atm = ATM()
