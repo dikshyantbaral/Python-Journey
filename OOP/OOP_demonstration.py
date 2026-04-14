@@ -1,8 +1,17 @@
 class ATM:
     def __init__(self): #magic methods are predefined 
-         self.pin = ""
+         self.__pin = "" #to hide this object from user
          self.balance = 0
+         print(id(self))
          self.menu()
+         
+
+    def get_pin(self):
+        return self.__pin
+    
+    def set_pin(self,new_pin):
+        self.__pin = new_pin
+        print("Pin Changed")
 
     def menu(self):
              user_input = input("""
@@ -25,23 +34,23 @@ Hello, how would you like to proceed?
                        print("adios")
 
     def create_pin(self):
-        self.pin = input("Enter your pin")
+        self.__pin = input("Enter your pin")
         print("Pin Set Successfully")
 
     def deposit(self):
         temp = input("Enter your pin")
-        if temp == self.pin:
+        if temp == self.__pin:
             amount = int(input("Enter the amount"))
-            self.balance = self.balance + amount
+            self.__balance = self.__balance + amount
             print("Deposit successfull")
         else:
             print("Invalid pin")
     def withdraw(self):
         temp = input("Enter your pin")
-        if temp == self.pin:
+        if temp == self.__pin:
             amount = int(input("Enter the amount"))
-            if amount<self.balance:
-                         self.balance = self.balance - amount
+            if amount<self.__balance:
+                         self.__balance = self.__balance - amount
                          print("Withdraw successfull")
             else:
                 print("Insufficient balance")
@@ -49,8 +58,8 @@ Hello, how would you like to proceed?
             print("Invalid Pin")
     def check_balance(self):
          temp = input("Enter your pin")
-         if temp == self.pin:
-            print(self.balance)
+         if temp == self.__pin:
+            print(self.__balance)
          else:
             print("Invalid pin")
 atm = ATM()
