@@ -1,11 +1,29 @@
 class ATM:
-    def __init__(self): #magic methods are predefined 
-         self.__pin = "" #to hide this object from user
-         self.balance = 0
-         print(id(self))
-         self.menu()
-         
 
+    #constructor
+    #special/magic/dunder methods
+    
+    #static/class variable
+    counter = 1
+    def __init__(self): 
+        #magic methods are predefined 
+         self.__pin = "" #to hide this object from user
+         self.balance = 0 #instance variable
+         self.sno = ATM.counter
+         ATM.counter = ATM.counter+1
+         print(id(self))
+        # self.menu()
+         
+    @staticmethod
+    def get_counter():
+        return ATM.__counter
+
+    def set_counter(new):
+        if type(new) == int:
+            ATM.__counter = new
+        else:
+            print("Not allowed")
+            
     def get_pin(self):
         return self.__pin
     
